@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halime ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffe0eb, #ffc2d6);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    padding: 25px;
+    width: 100%;
+}
+
+h1 {
+    color: #d6336c;
+    font-size: 30px;
+    margin-bottom: 45px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    min-height: 100px;
+}
+
+button {
+    border: none;
+    border-radius: 15px;
+    padding: 15px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+#yes {
+    background: #2ecc71;
+    color: white;
+    z-index: 3;
+    position: relative;
+}
+
+#no {
+    background: #ff5c75;
+    color: white;
+    z-index: 1;
+    position: relative;
+}
+
+
+#message {
+    color: #d6336c;
+    font-size: 27px;
+    font-weight: bold;
+    margin-top: 35px;
+}
+
+.heart {
+    position: fixed;
+    bottom: -40px;
+    pointer-events: none;
+    animation: fly 3s linear forwards;
+    z-index: 10;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Halime, benimle buluşmak ister misin? ❤️</h1>
+
+    <div class="buttons">
+        <button id="yes" onclick="accept()">Evet ❤️</button>
+        <button id="no" onclick="reject()">Hayır 😢</button>
+    </div>
+
+    <div id="message"></div>
+
+</div>
+
+<script>
+
+let size = 1;
+
+function reject() {
+
+    size += 0.25;
+
+    document.getElementById("yes").style.transform =
+        `scale(${size})`;
+
+    // Kalpler uçuşsun ❤️
+    for (let i = 0; i < 10; i++) {
+
+        let heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        const emojis = ["❤️", "💗", "💕", "💖", "💘"];
+
+        heart.innerHTML =
+            emojis[Math.floor(Math.random() * emojis.length)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+
+        heart.style.fontSize =
+            (20 + Math.random() * 25) + "px";
+
+        heart.style.animationDuration =
+            (2 + Math.random() * 2) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 4000);
+    }
+}
+
+function accept() {
+
+    document.querySelector("h1").innerHTML =
+        "Biliyordum! 🥹❤️";
+
+    document.querySelector(".buttons").style.display =
+        "none";
+
+    document.getElementById("message").innerHTML =
+    "Ben de sana çok aşığım her şeyim! ❤️🥹";
+
+    for (let i = 0; i < 40; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = "3s";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 4000);
+    }
+}
+
+</script>
+
+</body>
+</html>
+
+
